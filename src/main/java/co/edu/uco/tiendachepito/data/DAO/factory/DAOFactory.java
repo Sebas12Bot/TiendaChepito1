@@ -8,7 +8,9 @@ import co.edu.uco.tiendachepito.data.DAO.DepartamentoDAO;
 import co.edu.uco.tiendachepito.data.DAO.PaisDAO;
 import co.edu.uco.tiendachepito.data.DAO.factory.enums.Factory;
 import co.edu.uco.tiendachepito.data.DAO.factory.sql.azuresql.AzureSqlDAOFactory;
+import co.edu.uco.tiendachepito.data.DAO.sql.azuresql.PaisAzureSqlDAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class DAOFactory {
@@ -66,7 +68,7 @@ public abstract class DAOFactory {
         DAOFactory.getFactory(Factory.AZURE_SQL).getPaisDAO().crear(null);
         DAOFactory.getFactory(Factory.AZURE_SQL).getPaisDAO().actualizar(null);
         DAOFactory.getFactory(Factory.AZURE_SQL).getPaisDAO().eliminar(0);
-        List<Pais>
+//        List<PaisAzureSqlDAO> paisAzureSql = new ArrayList<PaisAzureSqlDAO>();
     }
 
 }

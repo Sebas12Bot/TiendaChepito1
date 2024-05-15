@@ -57,7 +57,6 @@ public final class PaisAzureSqlDAO extends SqlConnection implements PaisDAO {
                     paisEntity paisTmp = paisEntity.build(resultado.getInt("Id"), resultado.getString("Nombre"));
                     listaPaises.add(paisTmp);
                 }
-                return paises;
             }
         } catch (final SQLException exception) {
             var mensajeUsuario = "No ha sido posible llevar a cabo la consulta de los países. Por favor intente de nuevo y en caso de persistir el problema comuníquese con el administrador de la app tiendaChepito";

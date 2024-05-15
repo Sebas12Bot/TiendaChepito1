@@ -24,7 +24,20 @@ public class SqlConnection {
         this.connection = connection;
     }
 
-    protected final Connection getConnection(final Connection connection) {
+    protected final Connection getConnection() {
         return connection;
+
     }
+
+//        protected SqlConnection(final Connection connection) {
+//            if (connection == null) {
+//                throw new NullPointerException("The connection is null");
+//            }
+//            this.connection = connection;
+//        }
+//
+//        protected Connection getConnection() {
+//            return connection;
+//        }
+
 }
