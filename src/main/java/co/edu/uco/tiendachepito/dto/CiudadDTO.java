@@ -1,7 +1,8 @@
 package co.edu.uco.tiendachepito.dto;
 
-import co.edu.uco.tiendachepito.crosscutting.util.ObjectHelper;
-import co.edu.uco.tiendachepito.crosscutting.util.TextHelper;
+
+import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.ObjectHelper;
+import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.TextHelper;
 
 public final class CiudadDTO {
 

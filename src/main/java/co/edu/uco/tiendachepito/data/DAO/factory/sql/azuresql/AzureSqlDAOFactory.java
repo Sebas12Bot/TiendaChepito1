@@ -1,5 +1,6 @@
 package co.edu.uco.tiendachepito.data.DAO.factory.sql.azuresql;
 
+import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.SQLHelper;
 import co.edu.uco.tiendachepito.data.DAO.CiudadDAO;
 import co.edu.uco.tiendachepito.data.DAO.DepartamentoDAO;
 import co.edu.uco.tiendachepito.data.DAO.PaisDAO;
@@ -9,6 +10,8 @@ import co.edu.uco.tiendachepito.data.DAO.sql.azuresql.DepartamentoAzureSqlDAO;
 import co.edu.uco.tiendachepito.data.DAO.sql.azuresql.PaisAzureSqlDAO;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public final class AzureSqlDAOFactory extends DAOFactory {
 
@@ -20,27 +23,34 @@ public final class AzureSqlDAOFactory extends DAOFactory {
 
     @Override
     protected void obtenerConexion() {
-        connection = null;
+        final String connectionUrl = "jdbc:sqlserver://<server>:<port>;databaseName=<database>;user=<username>;password=<password>";
+        try {
+            connection = DriverManager.getConnection(connectionUrl);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void iniciarTransaccion() {
-
+        SQLHelper.initTransaction(connection);
     }
 
     @Override
     public void confirmarTransaccion() {
-
+        SQLHelper.commit(connection);
     }
 
     @Override
     public void cancelarTransaccion() {
-
+        SQLHelper.rollback(connection);
     }
 
     @Override
     public void cerrarConexion() {
-
+        SQLHelper.close(connection);
     }
 
     @Override

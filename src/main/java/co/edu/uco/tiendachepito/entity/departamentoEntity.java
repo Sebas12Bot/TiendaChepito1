@@ -1,8 +1,9 @@
 package co.edu.uco.tiendachepito.entity;
 
-import co.edu.uco.tiendachepito.crosscutting.util.NumericHelper;
-import co.edu.uco.tiendachepito.crosscutting.util.ObjectHelper;
-import co.edu.uco.tiendachepito.crosscutting.util.TextHelper;
+
+import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.NumericHelper;
+import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.ObjectHelper;
+import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.TextHelper;
 
 public final class departamentoEntity {
 

@@ -1,14 +1,15 @@
 package co.edu.uco.tiendachepito.entity;
 
-import co.edu.uco.tiendachepito.crosscutting.util.NumericHelper;
-import co.edu.uco.tiendachepito.crosscutting.util.TextHelper;
+
+import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.NumericHelper;
+import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.TextHelper;
 
 public final class paisEntity {
 
     private int id;
     private String nombre;
 
-    private paisEntity(final int id, final String nombre) {
+    public paisEntity(final int id, final String nombre) {
         setId(id);
         setNombre(TextHelper.EMPTY);
     }
