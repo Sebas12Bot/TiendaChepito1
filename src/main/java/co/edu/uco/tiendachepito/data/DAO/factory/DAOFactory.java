@@ -11,8 +11,6 @@ import co.edu.uco.tiendachepito.data.DAO.factory.sql.azuresql.AzureSqlDAOFactory
 
 import java.util.List;
 
-import static org.springframework.boot.jdbc.DatabaseDriver.SQLSERVER;
-
 public abstract class DAOFactory {
 
     public static final DAOFactory getFactory(final Factory factory){
@@ -68,7 +66,7 @@ public abstract class DAOFactory {
         DAOFactory.getFactory(Factory.AZURE_SQL).getPaisDAO().crear(null);
         DAOFactory.getFactory(Factory.AZURE_SQL).getPaisDAO().actualizar(null);
         DAOFactory.getFactory(Factory.AZURE_SQL).getPaisDAO().eliminar(0);
-        List<PaisEntity> resultados = DAOFactory.getFactory(Factory.AZURE_SQL).getPaisDAO().consultar(null);
+        List<Pais>
     }
 
 }
