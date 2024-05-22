@@ -1,10 +1,12 @@
 package co.edu.uco.tiendachepito.dto;
 
 
+import co.edu.uco.tiendachepito.business.domain.CiudadDomain;
 import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.TextHelper;
 
 public final class PaisDTO {
 
+    public static CiudadDomain build;
     private int id;
     private String nombre;
 

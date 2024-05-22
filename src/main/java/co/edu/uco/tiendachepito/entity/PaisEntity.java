@@ -4,30 +4,30 @@ package co.edu.uco.tiendachepito.entity;
 import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.NumericHelper;
 import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.TextHelper;
 
-public final class paisEntity {
+public final class PaisEntity {
 
     private int id;
     private String nombre;
 
-    public paisEntity(final int id, final String nombre) {
+    public PaisEntity(final int id, final String nombre) {
         setId(id);
         setNombre(TextHelper.EMPTY);
     }
 
-    private paisEntity(final int id) {
+    private PaisEntity(final int id) {
         setNombre(TextHelper.EMPTY);
     }
 
-    public static final paisEntity build(final int id){
-        return new paisEntity(id);
+    public static final PaisEntity build(final int id){
+        return new PaisEntity(id);
     }
 
-    public static final paisEntity build(final int id, final String nombre){
-        return new paisEntity(id,nombre);
+    public static final PaisEntity build(final int id, final String nombre){
+        return new PaisEntity(id,nombre);
     }
 
-    protected static final paisEntity build(){
-        return new paisEntity(NumericHelper.ZERO);
+    protected static final PaisEntity build(){
+        return new PaisEntity(NumericHelper.ZERO);
     }
 
     public final int getId() {

@@ -2,7 +2,7 @@ package co.edu.uco.tiendachepito.data.DAO.sql.azuresql;
 
 import co.edu.uco.tiendachepito.data.DAO.DepartamentoDAO;
 import co.edu.uco.tiendachepito.data.DAO.sql.SqlConnection;
-import co.edu.uco.tiendachepito.entity.departamentoEntity;
+import co.edu.uco.tiendachepito.entity.DepartamentoEntity;
 
 import java.sql.Connection;
 import java.util.List;
@@ -14,7 +14,7 @@ public final class DepartamentoAzureSqlDAO extends SqlConnection implements Depa
     }
 
     @Override
-    public final void actualizar(final departamentoEntity entidad) {
+    public final void actualizar(final DepartamentoEntity entidad) {
         final var sentenciaSql = new StringBuilder();
         sentenciaSql.append("UPDATE Departamento");
         sentenciaSql.append("SET Nombre = 'Atlantico' ");
@@ -22,7 +22,7 @@ public final class DepartamentoAzureSqlDAO extends SqlConnection implements Depa
     }
 
     @Override
-    public final List<departamentoEntity> consultar(final departamentoEntity entidad) {
+    public final List<DepartamentoEntity> consultar(final DepartamentoEntity entidad) {
         final var sentenciaSql = new StringBuilder();
         sentenciaSql.append("SELECT  Id, Nombre");
         sentenciaSql.append("FROM Departamento");
@@ -31,7 +31,7 @@ public final class DepartamentoAzureSqlDAO extends SqlConnection implements Depa
     }
 
     @Override
-    public final void crear(final departamentoEntity entidad) {
+    public final void crear(final DepartamentoEntity entidad) {
         final var sentenciaSql = new StringBuilder();
         sentenciaSql.append("INSERT INTO Departamento(Nombre)");
         sentenciaSql.append("VALUES('Antioquia')");

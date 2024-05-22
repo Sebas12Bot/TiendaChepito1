@@ -120,6 +120,4 @@ public final class SQLHelper {
             throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
         }
     }
-
-
 }

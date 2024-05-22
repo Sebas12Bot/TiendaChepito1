@@ -5,7 +5,7 @@ import co.edu.uco.tiendachepito.crosscutting.crosscutting.exception.messagecatal
 import co.edu.uco.tiendachepito.crosscutting.crosscutting.exception.messagecatalog.data.CodigoMensaje;
 import co.edu.uco.tiendachepito.data.DAO.PaisDAO;
 import co.edu.uco.tiendachepito.data.DAO.sql.SqlConnection;
-import co.edu.uco.tiendachepito.entity.paisEntity;
+import co.edu.uco.tiendachepito.entity.PaisEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +21,7 @@ public final class PaisAzureSqlDAO extends SqlConnection implements PaisDAO {
     }
 
     @Override
-    public final void actualizar(final paisEntity entidad) {
+    public final void actualizar(final PaisEntity entidad) {
         final var sentenciaSql = new StringBuilder();
         sentenciaSql.append("UPDATE Pais ");
         sentenciaSql.append("SET Nombre = ? ");
@@ -43,8 +43,8 @@ public final class PaisAzureSqlDAO extends SqlConnection implements PaisDAO {
     }
 
     @Override
-    public final List<paisEntity> consultar(final paisEntity entidad) {
-        final var listaPaises = new ArrayList<paisEntity>();
+    public final List<PaisEntity> consultar(final PaisEntity entidad) {
+        final var listaPaises = new ArrayList<PaisEntity>();
         final var sentenciaSql = new StringBuilder();
         sentenciaSql.append("SELECT Id, Nombre ");
         sentenciaSql.append("FROM Pais ");
@@ -52,9 +52,9 @@ public final class PaisAzureSqlDAO extends SqlConnection implements PaisDAO {
 
         try (final PreparedStatement sentenciaPreparada = getConnection().prepareStatement(sentenciaSql.toString())) {
             try (final ResultSet resultado = sentenciaPreparada.executeQuery()) {
-                List<paisEntity> paises = new ArrayList<>();
+                List<PaisEntity> paises = new ArrayList<>();
                 while (resultado.next()) {
-                    paisEntity paisTmp = paisEntity.build(resultado.getInt("Id"), resultado.getString("Nombre"));
+                    PaisEntity paisTmp = PaisEntity.build(resultado.getInt("Id"), resultado.getString("Nombre"));
                     listaPaises.add(paisTmp);
                 }
             }
@@ -73,7 +73,7 @@ public final class PaisAzureSqlDAO extends SqlConnection implements PaisDAO {
     }
 
     @Override
-    public final void crear(final paisEntity entidad) {
+    public final void crear(final PaisEntity entidad) {
         final var sentenciaSql = new StringBuilder();
         sentenciaSql.append("INSERT INTO Pais(Nombre) ");
         sentenciaSql.append("VALUES(?)");

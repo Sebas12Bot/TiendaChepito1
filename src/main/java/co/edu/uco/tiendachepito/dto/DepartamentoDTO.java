@@ -1,6 +1,5 @@
 package co.edu.uco.tiendachepito.dto;
 
-
 import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.ObjectHelper;
 import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.TextHelper;
 
@@ -10,7 +9,7 @@ public final class DepartamentoDTO {
     private String nombre;
     private PaisDTO pais;
 
-    public DepartamentoDTO(final int id,final String nombre,final PaisDTO pais) {
+    public DepartamentoDTO(final int id, final String nombre, final PaisDTO pais) {
         setId(id);
         setNombre(nombre);
         setPais(pais);
@@ -21,7 +20,7 @@ public final class DepartamentoDTO {
         setPais(PaisDTO.build());
     }
 
-    public static final DepartamentoDTO build(){
+    public static final DepartamentoDTO build() {
         return new DepartamentoDTO();
     }
 
@@ -47,8 +46,8 @@ public final class DepartamentoDTO {
         return pais;
     }
 
-    public final void setPais(final PaisDTO pais) {
+    public final DepartamentoDTO setPais(final PaisDTO pais) {
         this.pais = ObjectHelper.getObjectHelper().getDefault(pais, PaisDTO.build());
+        return this;
     }
-
 }
