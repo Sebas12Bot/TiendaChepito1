@@ -1,6 +1,5 @@
 package co.edu.uco.tiendachepito.entity;
 
-
 import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.NumericHelper;
 import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.ObjectHelper;
 import co.edu.uco.tiendachepito.crosscutting.crosscutting.helpers.TextHelper;
@@ -20,43 +19,49 @@ public final class CiudadEntity {
     private CiudadEntity(final int id) {
         setId(id);
         setNombre(TextHelper.EMPTY);
-        setDepartamento(DepartamentoEntity.build());
+        setDepartamento(DepartamentoEntity.build(NumericHelper.ZERO));
     }
 
-    public static final CiudadEntity build (final int id){
+    private CiudadEntity() {
+        this(NumericHelper.ZERO, TextHelper.EMPTY, DepartamentoEntity.build(NumericHelper.ZERO));
+    }
+
+    public static final CiudadEntity build(final int id) {
         return new CiudadEntity(id);
     }
 
-    public static final CiudadEntity build(final int id, final String nombre, final DepartamentoEntity departamento){
-        return new CiudadEntity(id);
+    public static final CiudadEntity build(final int id, final String nombre, final DepartamentoEntity departamento) {
+        return new CiudadEntity(id, nombre, departamento);
     }
 
-    protected static final CiudadEntity build(){
-        return new CiudadEntity(NumericHelper.ZERO);
+    public static final CiudadEntity build() {
+        return new CiudadEntity();
     }
 
     public final int getId() {
         return id;
     }
 
+    public final CiudadEntity setId(final int id) {
+        this.id = id;
+        return this;
+    }
+
     public final String getNombre() {
         return nombre;
+    }
+
+    public final CiudadEntity setNombre(final String nombre) {
+        this.nombre = TextHelper.applyTrim(nombre);
+        return this;
     }
 
     public final DepartamentoEntity getDepartamento() {
         return departamento;
     }
 
-    private final void setId(final int id) {
-        this.id = id;
-    }
-
-    private final void setNombre(final String nombre) {
-        this.nombre = TextHelper.applyTrim(nombre);
-    }
-
-    private final DepartamentoEntity setDepartamento(final DepartamentoEntity departamento) {
+    public final CiudadEntity setDepartamento(final DepartamentoEntity departamento) {
         this.departamento = ObjectHelper.getObjectHelper().getDefault(departamento, DepartamentoEntity.build(NumericHelper.ZERO));
-        return departamento;
+        return this;
     }
 }
