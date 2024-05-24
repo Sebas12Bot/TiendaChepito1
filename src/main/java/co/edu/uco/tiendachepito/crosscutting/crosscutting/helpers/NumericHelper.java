@@ -8,4 +8,7 @@ public final class NumericHelper {
 		super();
 	}
 
+	public static int convertToInt(String id) {
+		return 0;
+	}
 }

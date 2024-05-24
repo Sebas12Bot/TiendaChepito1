@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Response <T>{
-    private List<String> mensajes = new ArrayList<E>();
+    private List<String> mensajes = new ArrayList<>();
     private List<T> datos;
 
     public final List<String> getMensajes() {
